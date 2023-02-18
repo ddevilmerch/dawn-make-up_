@@ -1,0 +1,62 @@
+{% schema %}
+  {
+    "name": "new-product-card",
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+.new-product-card
+{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'nt-valentino.otf’, sans-serif;
+}
+body
+{
+display: flex;
+justify-content: center;
+align-item: center;
+min-height: 100vh;
+}
+.card
+{
+position: relative;
+width: 600px;
+height: 350px;
+background: #ccc;
+border-radius: 20px;
+
+display: flex;
+align-items: center;
+border-radius: 20px;
+transition: 0.5s;
+}
+.card .circle
+{
+position: obsolete;
+top: 0;
+left:0;
+width: 100%;
+height: 100%;
+border-radiu: 20%
+overflow: hidden;
+}
+.card .circle::before
+{
+content: '';
+pofition: absolute;
+top: 0;
+left: 0;
+width: 100;
+height: 100%;
+background: #d83133;
+clip-path: circle(120px at center);
+transition: 0.5s;
+
+}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
