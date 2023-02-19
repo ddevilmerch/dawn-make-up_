@@ -1,6 +1,7 @@
 {
     "recommendations": [
         "sissel.shopify-liquid",
-        "github.copilot"
+        "github.copilot",
+        "ms-vscode.mono-debug"
     ]
 }
