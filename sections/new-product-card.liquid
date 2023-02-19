@@ -1,61 +1,129 @@
-<section
-  id=new-product-card{{ section.id }}"
-  class="page-width section-{{ section.id }}-padding"
-  data-section="{{ section.id }}"
->
+{% comment %}
+  new-product-card.liquid
+  This section displays a single new product card.
+{% endcomment %}
+
+<section class="new-product-card-section section-{{ section.id }}-padding" data-section-id="{{ section.id }}">
+  <div class="card">
+    <div class="circle">
+      <img src="{{ section.settings.image | img_url: '600x600' }}" alt="{{ section.settings.title }}" width="600" height="600" loading="lazy">
+   </div>
+    <div class="product-details">
+      <h2 class="product-title">{{ section.settings.title }}</h2>
+      <p class="product-description">{{ section.settings.description }}</p>
+      <span class="product-price">{{ section.settings.price }}</span>
+      <a href="{{ section.settings.buttonLink }}" class="buy-now">{{ section.settings.buttonText }}</a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "New Product Card",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "New Product"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Description",
+      "default": "This is a new product"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "price",
+      "label": "Price",
+      "default": "$100.00"
+    },
+    {
+      "type": "text",
+      "id": "buttonText",
+      "label": "Button Text",
+      "default": "Buy Now"
+    },
+    {
+      "type": "url",
+      "id": "buttonLink",
+      "label": "Button Link"
+    }
+  ]
+}
+{% endschema %}
 
 {% stylesheet %}
-.new-product-card
-{
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-font-family: 'nt-valentino.otf’, sans-serif;
+.new-product-card-section {
+  margin-bottom: 40px;
 }
-body
-{
-display: flex;
-justify-content: center;
-align-item: center;
-min-height: 100vh;
-}
-.card
-{
-position: relative;
-width: 600px;
-height: 350px;
-background: #ccc;
-border-radius: 20px;
 
-display: flex;
-align-items: center;
-border-radius: 20px;
-transition: 0.5s;
+.card {
+  position: relative;
+  width: 600px;
+  height: 350px;
+  background: #ccc;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  transition: 0.5s;
 }
-.card .circle
-{
-position: obsolete;
-top: 0;
-left:0;
-width: 100%;
-height: 100%;
-border-radiu: 20%
-overflow: hidden;
-}
-.card .circle::before
-{
-content: '';
-pofition: absolute;
-top: 0;
-left: 0;
-width: 100;
-height: 100%;
-background: #d83133;
-clip-path: circle(120px at center);
-transition: 0.5s;
 
+.circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
 }
-{% endstylesheet %}
 
-{% javascript %}
-{% endjavascript %}
+.circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-details {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.product-title {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.product-description {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.product-price {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.buy-now {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 4px;
+  background-color: #d83133;
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.buy
