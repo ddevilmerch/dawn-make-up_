@@ -1,1 +1,18 @@
-{"sections":{"new-product-card":{"type":"new-product-card","settings":{}}},"order":["new-product-card"]}
+{
+    "sections":
+    {
+        "new-product-card":
+        {
+            "type":"new-product-card",
+            "settings":{
+                "title":"New Product",
+                "description":"This is a new product",
+                "image":"",
+                "price":"$100.00",
+                "buttonText":"Buy Now",
+                "buttonLink":""
+            }}},
+            "order":[
+                "new-product-card"
+                ]
+            }
