@@ -2,6 +2,7 @@
     "recommendations": [
         "sissel.shopify-liquid",
         "github.copilot",
-        "ms-vscode.mono-debug"
+        "ms-vscode.mono-debug",
+        "hyb1996.auto-js-pro-ext"
     ]
 }
