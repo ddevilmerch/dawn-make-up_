@@ -1,95 +1,10 @@
-{% comment %}
-Template Name: New Product
-{% endcomment %}
-
-{% section 'new-product-card' %}
-
-{% stylesheet %}
-.new-product-card {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'nt-valentino.otf’, sans-serif;
-}
-
-.card {
-  position: relative;
-  width: 600px;
-  height: 350px;
-  background: #ccc;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  border-radius: 20px;
-  transition: 0.5s;
-}
-
-.card .circle {
-  position: absolute;
-  top: 0;
-  left:0;
-  width: 100%;
-  height: 100%;
-  border-radius: 20%;
-  overflow: hidden;
-}
-
-.card .circle::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #d83133;
-  clip-path: circle(120px at center);
-  transition: 0.5s;
-}
-
-{% endstylesheet %}
-
-{% schema %}
-{
-  "name": "New Product Card",
-  "settings": [
-    {
-      "type": "header",
-      "content": "New Product Card Settings"
-    },
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Title",
-      "default": "New Product"
-    },
-    {
-      "type": "text",
-      "id": "description",
-      "label": "Description",
-      "default": "This is a new product"
-    },
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Image"
-    },
-    {
-      "type": "text",
-      "id": "price",
-      "label": "Price",
-      "default": "$100.00"
-    },
-    {
-      "type": "text",
-      "id": "buttonText",
-      "label": "Button Text",
-      "default": "Buy Now"
-    },
-    {
-      "type": "url",
-      "id": "buttonLink",
-      "label": "Button Link"
-    }
-  ]
-}
-{% endschema %}
+<div class="card">
+      <div class="circle"></div>
+      <img
+        src="{{ product.featured_image | image_url: 'width:600, height:600' }}"
+        alt="{{ product.featured_image.alt }}"
+        width="{{ product.featured_image.width }}"
+        height="{{ product.featured_image.height }}"
+        loading="lazy">
+      <div class="content">
+        <h2>
