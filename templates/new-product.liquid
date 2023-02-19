@@ -19,6 +19,7 @@
   <div class="card">
     <div class="circle"></div>
     <img src="{{ product.featured_image | image_url: width: 600, height: 600 }}" alt="{{ product.featured_image.alt }}" width="{{ product.featured_image.width }}" height="{{ product.featured_image.height }}" loading="lazy">
+    <div class="content">
       <h2>{{ product.title }}</h2>
       <p>{{ product.description | strip_html | truncatewords: 20 }}</p>
       <a href="{{ product.url }}">Shop Now</a>
@@ -27,155 +28,103 @@
   
   {% stylesheet %}
     /* Insert the CSS code for the card here */
-    #style.css
-  @import url(nt-valentino.otf | font_url);
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
   
-
-  Margin: 0;
-  Padding: 0;
-  Box-sizing: border-box;
-  Font-family: ‘nt-valentino.otf’, sans-serif;
-  }
-  Body
-  {Display: flex;
-  Justify-content: center;
-  Align-item: center;
-  Min-height: 100vh;
-  }
-  .card
-  {
-  Position: relative;
-  Width: 600px;
-  Height: 350px;
-  Background: #ccc;
-  Border-radius: 20px;
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
   
-  Display: flex;
-  Align-items: center;
-  Border-radius: 20px;
-  Transition: 0.5s;
-  }
-  .card .circle
-  {
-  Position: obsolete;
-  Top: 0;
-  Left:0;
-  Width: 100%;
-  Height: 100%;
-  border-radiu: 20%
-  Overflow: hidden;
-  }
-  .card .circle::before
-  {
-  Content: ‘’;
-  Pofition: absolute;
-  Top: 0;
-  Left: 0;
-  Width: 100;
-  Height: 100%
-  Background: #d83133;
-  Clip-path: circle(120px at center);
-  Transition: 0.5s;
+    .card {
+      position: relative;
+      width: 600px;
+      height: 350px;
+      background: #ccc;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      border-radius: 20px;
+      transition: 0.5s;
+    }
   
-  }
+    .card .circle {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 20%;
+      overflow: hidden;
+    }
   
-  .card:hove .circle:before
-  {
-  Background: #0065c3;
-  Clip-path: circle(400px at center);
-  }
-  .card img
-  {
-  Position: absolute;
-  Top: 50%;
-  Left: 50%;
-  Transform: translate(-50%, -50%);
-  Height: 300px;
-  Pointer-events: none;
-  Transition: 0.5s;
-  }
-  .card:hover img
-  }
-  leftL 72%;
-  Height: 500px;
-  .card .content
-  {
-  Position: relative;
-  Width: 50%;
-  Left: 20%;
-  Padding: 20px 20px 20px 40px;
-  Transition: 0.5s;
-  Opacity: 0;
-  Visibility: hidden;
-  }
-  .card:hover .content
-  {
-  Left: 0;
-  Opacit: 1;
-  Visibility: visible;
-  {
-  .card .content  h2
-  {
-  Color: #fff;
-  Text-transform: uppercase;
-  Font-size: 2em;
-  Line-height: 1em;
-  Margin-bottom: 5px;
-  }
-  .card .content p
-  {
-  Color: #fff;
-  }
-  .card .content a
-  {
-  Position: relative;
-  Color: #fff;
-  padding : 10px 20px;
-  Border-radius: 10px;
-  Background: #fff;
-  Color: #111;
-  Margin-top: 10px;
-  Display: inline-block;
-  Text-decoration: none;
-  Font-weight: 700;
-  }
-  @media (max-width: 991px)
-  {
-  .card
-  {
-  Width: auto;
-  Max-width: 350px;
-  Align-items: flex-start;
-  }
-  .card:hover
-  {
-  Height: 600px;
-  }
-  .card .content
-  {
-  Width: 100;
-  Left: 0;
-  Padding: 30px;
-  }
-  .card:hover img
-  {
-  Top: 70%;
-  Left: 50%;
-  Height: 300px;
-  }
-  @media (max-width: 420px)
-  {
-  .card .content
-  {
-  Width: 100px;
-  Left: 0;
-  Padding: 20px;
-  }
-  } 
+    .card .circle::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #d83133;
+      clip-path: circle(120px at center);
+      transition: 0.5s;
+    }
   
+    .card:hover .circle::before {
+      background: #0065c3;
+      clip-path: circle(400px at center);
+    }
   
+    .card img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 300px;
+      pointer-events: none;
+      transition: 0.5s;
+    }
+  
+    .card:hover img {
+      left: 72%;
+      height: 500px;
+    }
+  
+    .card .content {
+      position: relative;
+      width: 50%;
+      left: 20%;
+      padding: 20px 20px 20px 40px;
+      transition: 0.5s;
+      opacity: 0;
+      visibility: hidden;
+    }
+  
+    .card:hover .content {
+      left: 0;
+      opacity: 1;
+      visibility: visible;
+    }
+  
+    .card .content h2 {
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 2em;
+      line-height: 1em;
+      margin-bottom: 5px;
+    }
+  
+    .card .content p {
+      color: #fff;
+    }
+  
+    .card .content a {
+      position: relative;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 10px;
+      background: #fff;
+      color: #111;
+     
   {% endstylesheet %}
-  
-  {% javascript %}
-    // Insert any JavaScript code you want to include here
-  {% endjavascript %}
