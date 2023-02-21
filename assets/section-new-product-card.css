@@ -1,0 +1,16 @@
+@import url('mt-valentino.otf'|asset_url);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.card {
+  position: relative;
+  width: 600px;
+  height: 350px;
+  background: #ccc;
+  border-radius: 20px;
+  display: flex;
