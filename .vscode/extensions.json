@@ -3,6 +3,7 @@
         "sissel.shopify-liquid",
         "github.copilot",
         "ms-vscode.mono-debug",
-        "hyb1996.auto-js-pro-ext"
+        "hyb1996.auto-js-pro-ext",
+        "shopify.polaris-for-vscode"
     ]
 }
